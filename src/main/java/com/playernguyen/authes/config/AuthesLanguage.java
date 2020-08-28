@@ -42,6 +42,10 @@ public class AuthesLanguage extends AuthesInstance {
                 Objects.requireNonNull(getFileConfiguration().getString(flag.getPath())));
     }
 
+    public String getLanguageWithPrefix(LanguageFlag languageFlag) {
+        return get(LanguageFlag.PREFIX).concat(" ").concat(get(languageFlag));
+    }
+
     private void save() throws IOException {
         this.fileConfiguration.save(this.file);
     }

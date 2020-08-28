@@ -5,7 +5,7 @@ author: Player_Nguyen
 commands:
   register:
     usage: /register <password> <confirmPassword>
-    aliases: [register, reg, r]
+    aliases: [register, reg, rg]
     description: Register command of Authes
   login:
     usage: /login <password>
@@ -17,13 +17,13 @@ commands:
     description: Change email of authes
   changepassword:
     usage: /changepassword <oldPassword> <newPassword> <confirmPassword>
-    aliases: [changepassword, cp, cpass]
+    aliases: [changepassword, cpass]
     description: Change password of Authes
   recoverypassword:
     usage: /recoverypassword <recoveryCode> <newPassword> <renewPassword>
-    aliases: [recoverypassword, rp, rpass]
+    aliases: [recoverypassword, rpass]
     description: Recovery password of Authes
   forgotpassword:
     usage: /forgotpassword
-    aliases: [forgotpassword, fp, fpass]
+    aliases: [forgotpassword, fpass]
     description: Forgot password of Authes

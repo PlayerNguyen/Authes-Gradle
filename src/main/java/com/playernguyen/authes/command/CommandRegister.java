@@ -20,13 +20,13 @@ public class CommandRegister extends CommandAbstract {
 
             // Already registered
             if (getAccountManager().getAccountFromUUID(player.getUniqueId()).isRegistered()) {
-                player.sendMessage(getLanguage().get(LanguageFlag.ALREADY_REGISTERED));
+                player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.ALREADY_REGISTERED));
                 return CommandState.NOTHING;
             }
 
             // If not validate arguments
             if (arguments.size() < 2) {
-                player.sendMessage(getLanguage().get(LanguageFlag.MISSING_REGISTER_COMMAND));
+                player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.MISSING_REGISTER_COMMAND));
                 return CommandState.NOTHING;
             }
 
@@ -34,34 +34,34 @@ public class CommandRegister extends CommandAbstract {
             String password = arguments.get(0);
             String confirmPassword = arguments.get(1);
             if (!password.equalsIgnoreCase(confirmPassword)) {
-                player.sendMessage(getLanguage().get(LanguageFlag.PASSWORD_NOT_MATCH));
+                player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.PASSWORD_NOT_MATCH));
                 return CommandState.NOTHING;
             }
 
             // Password checker
             // Length
             if (password.length() < getConfiguration().getInt(ConfigurationFlag.PASSWORD_MIN_SIZE)) {
-                player.sendMessage(getLanguage().get(LanguageFlag.PASSWORD_TOO_SHORT));
+                player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.PASSWORD_TOO_SHORT));
                 return CommandState.NOTHING;
             }
 
             // Registering
             if (getSQLAccountManager().register(player, player.getUniqueId(), password)) {
                 // Set the registered to true and message to player
-                player.sendMessage(getLanguage().get(LanguageFlag.REGISTER_SUCCESS));
+                player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.REGISTER_SUCCESS));
                 getAccountManager().getAccountFromUUID(player.getUniqueId()).setRegistered(true);
                 // Auto login
                 if (getConfiguration().getBoolean(ConfigurationFlag.LOGIN_AFTER_REGISTER)) {
                     if (getSessionManager().createSession(player.getUniqueId())
                             && getSQLAccountManager().setLogged(player, player.getUniqueId(), true)) {
-                        player.sendMessage(getLanguage().get(LanguageFlag.LOGIN_SUCCESS));
+                        player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.LOGIN_SUCCESS));
                     } else {
-                        player.sendMessage(getLanguage().get(LanguageFlag.LOGIN_FAIL));
+                        player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.LOGIN_FAIL));
                     }
                 }
             } else {
                 // False
-                player.sendMessage(getLanguage().get(LanguageFlag.REGISTER_FAILED));
+                player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.REGISTER_FAILED));
             }
             return CommandState.NOTHING;
 

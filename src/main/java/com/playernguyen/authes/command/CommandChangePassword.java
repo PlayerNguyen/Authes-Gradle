@@ -27,30 +27,30 @@ public class CommandChangePassword extends CommandAbstract{
             String confirmPassword = arguments.get(2);
             // Check old password
             if (!getSQLAccountManager().login(player.getUniqueId(), oldPassword)) {
-                player.sendMessage(getLanguage().get(LanguageFlag.WRONG_PASSWORD));
+                player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.WRONG_PASSWORD));
                 return CommandState.NOTHING;
             }
 
             // Short password
             if (newPassword.length() < getConfiguration().getInt(ConfigurationFlag.PASSWORD_MIN_SIZE)) {
-                player.sendMessage(getLanguage().get(LanguageFlag.PASSWORD_TOO_SHORT));
+                player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.PASSWORD_TOO_SHORT));
                 return CommandState.NOTHING;
             }
 
             // Matching confirm
             if (!(newPassword.equalsIgnoreCase(confirmPassword))) {
-                player.sendMessage(getLanguage().get(LanguageFlag.PASSWORD_NOT_MATCH));
+                player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.PASSWORD_NOT_MATCH));
                 return CommandState.NOTHING;
             }
 
 
             // Change password fail
             if (!getSQLAccountManager().changePassword(player.getUniqueId(), newPassword)) {
-                player.sendMessage(getLanguage().get(LanguageFlag.CHANGE_PASSWORD_FAIL));
+                player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.CHANGE_PASSWORD_FAIL));
                 return CommandState.NOTHING;
             }
 
-            player.sendMessage(getLanguage().get(LanguageFlag.CHANGE_PASSWORD_SUCCESS));
+            player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.CHANGE_PASSWORD_SUCCESS));
             return CommandState.NOTHING;
          }
 

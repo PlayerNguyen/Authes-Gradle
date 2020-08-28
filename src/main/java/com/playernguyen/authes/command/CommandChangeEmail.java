@@ -26,7 +26,7 @@ public class CommandChangeEmail extends CommandAbstract {
             String plainEmail = arguments.get(0);
             // if not an email
             if (!EmailChecker.check(plainEmail)) {
-                sender.sendMessage(getLanguage().get(LanguageFlag.INVALID_EMAIL_FORMAT));
+                sender.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.INVALID_EMAIL_FORMAT));
                 return CommandState.NOTHING;
             }
 
@@ -35,11 +35,11 @@ public class CommandChangeEmail extends CommandAbstract {
 
             // Change email
             if (!getSQLAccountManager().changeEmail(((Player) sender).getUniqueId(), plainEmail)) {
-                sender.sendMessage(getLanguage().get(LanguageFlag.CHANGE_EMAIL_FAIL));
+                sender.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.CHANGE_EMAIL_FAIL));
                 return CommandState.NOTHING;
             }
 
-            sender.sendMessage(getLanguage().get(LanguageFlag.CHANGE_EMAIL_SUCCESS));
+            sender.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.CHANGE_EMAIL_SUCCESS));
 
         }
 

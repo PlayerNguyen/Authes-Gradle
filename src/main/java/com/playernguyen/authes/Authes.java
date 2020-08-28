@@ -9,6 +9,7 @@ import com.playernguyen.authes.config.AuthesConfiguration;
 import com.playernguyen.authes.config.AuthesLanguage;
 import com.playernguyen.authes.config.ConfigurationFlag;
 import com.playernguyen.authes.listener.*;
+import com.playernguyen.authes.logger.AuthesLoggerFilter;
 import com.playernguyen.authes.mail.MailSender;
 import com.playernguyen.authes.schedule.AuthesForceLogin;
 import com.playernguyen.authes.sql.MySQLEstablishment;
@@ -39,6 +40,8 @@ public class Authes extends JavaPlugin {
     private CommandManager commandManager;
     private MailSender mailSender;
 
+
+
     @Override
     public void onEnable() {
         instance = this;
@@ -58,6 +61,13 @@ public class Authes extends JavaPlugin {
         setupResource();
         // Set up mail services
         setupMail();
+        // Set up logger
+        setupLogger();
+    }
+
+    private void setupLogger() {
+        // Set up logger
+        new AuthesLoggerFilter().registerFilter();
     }
 
     private void setupMail() {

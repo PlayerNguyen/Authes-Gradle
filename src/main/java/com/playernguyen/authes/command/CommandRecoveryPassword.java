@@ -27,24 +27,24 @@ public class CommandRecoveryPassword extends CommandAbstract {
             String password = arguments.get(1);
             String rePassword = arguments.get(2);
             if (!getSQLAccountManager().validRecoveryKey(player.getUniqueId(), recovery)) {
-                player.sendMessage(getLanguage().get(LanguageFlag.RECOVERY_CODE_INVALID));
+                player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.RECOVERY_CODE_INVALID));
                 return CommandState.NOTHING;
             }
 
             // Matching
             if (!password.equalsIgnoreCase(rePassword)) {
-                player.sendMessage(getLanguage().get(LanguageFlag.PASSWORD_NOT_MATCH));
+                player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.PASSWORD_NOT_MATCH));
                 return CommandState.NOTHING;
             }
 
             // Fail to change password
             if (!getSQLAccountManager().changePassword(player.getUniqueId(), password)) {
-                player.sendMessage(getLanguage().get(LanguageFlag.CHANGE_PASSWORD_FAIL));
+                player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.CHANGE_PASSWORD_FAIL));
                 return CommandState.NOTHING;
             }
 
             getSQLAccountManager().regenerateRecoveryKey(player.getUniqueId());
-            player.sendMessage(getLanguage().get(LanguageFlag.CHANGE_PASSWORD_SUCCESS));
+            player.sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.CHANGE_PASSWORD_SUCCESS));
 
             return CommandState.NOTHING;
         }

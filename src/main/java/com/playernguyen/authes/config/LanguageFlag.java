@@ -2,6 +2,7 @@ package com.playernguyen.authes.config;
 
 public enum LanguageFlag {
 
+    PREFIX ("prefix", "&7[&cAuthes&7]"),
     REQUIRE_REGISTER("require-register", "&cPlease register by using /register <password> <confirmPassword>"),
     REQUIRE_LOGIN("require-login", "&cPlease login by using /login <password>"),
     KICK_REASON("kick-reason", "&cYou has been kicked because not register/login"),
@@ -25,7 +26,7 @@ public enum LanguageFlag {
     ALREADY_LOGGED_IN("already-logged-in", "&cYou are logged in, don't need to re-login."),
     CHANGE_PASSWORD_FAIL("change-password-fail", "&cFailed to change password, please content to admin."),
     CHANGE_PASSWORD_SUCCESS("change-password-success", "&aSucceeded to change password"),
-    RECOVERY_PASSWORD_SENT("recovery-password-sent", "&6Recovery password has sent to your mail!"),
+    RECOVERY_PASSWORD_SENT("recovery-password-sent", "&6&bRecovery password has sent to your mail!"),
     RECOVERY_CODE_INVALID("recovery-code-invalid", "&cRecovery code's invalid!"),
     ;
 

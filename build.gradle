@@ -17,6 +17,7 @@ repositories {
 
 shadowJar {
     baseName "Authes"
+    classifier ''
     dependencies {
         exclude("org.mindrot:jbcrypt")
         exclude("org.apache.commons:commons-email")
