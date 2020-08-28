@@ -47,7 +47,7 @@ public class AuthesForceLogin extends AuthesRunnable {
         if (!getAccountManager().getAccountFromUUID(getPlayer().getUniqueId()).isRegistered()) {
             // Anti spam
             if (ticker % 2 == 0) {
-                this.getPlayer().sendMessage(getLanguage().get(LanguageFlag.REQUIRE_REGISTER));
+                this.getPlayer().sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.REQUIRE_REGISTER));
             }
             return;
         }
@@ -55,7 +55,7 @@ public class AuthesForceLogin extends AuthesRunnable {
         // Not has session
         if (!getSessionManager().hasSession(player.getUniqueId())) {
             if (ticker % 2 == 0) {
-                this.getPlayer().sendMessage(getLanguage().get(LanguageFlag.REQUIRE_LOGIN));
+                this.getPlayer().sendMessage(getLanguage().getLanguageWithPrefix(LanguageFlag.REQUIRE_LOGIN));
 
             }
             return;

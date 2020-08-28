@@ -20,6 +20,7 @@ public class PlayerJoinListener extends AuthesListener {
                 "Player %s (%s), registered: %s",
                 p.getName(), p.getUniqueId(), (account.isRegistered()) ? "Yes":"No"
         ));
+
         // Create new task to force player :)
         BukkitRunnable runnable = new AuthesForceLogin(p);
         runnable.runTaskTimer(getInstance(), 20, 20);
