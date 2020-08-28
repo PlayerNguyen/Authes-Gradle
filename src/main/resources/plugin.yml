@@ -1,0 +1,29 @@
+name: Authes
+version: 1.0
+main: com.playernguyen.authes.Authes
+author: Player_Nguyen
+commands:
+  register:
+    usage: /register <password> <confirmPassword>
+    aliases: [register, reg, r]
+    description: Register command of Authes
+  login:
+    usage: /login <password>
+    aliases: [login, l]
+    description: Login command of Authes
+  changeemail:
+    usage: /changeemail <email>
+    aliases: [changeemail, cemail, ce]
+    description: Change email of authes
+  changepassword:
+    usage: /changepassword <oldPassword> <newPassword> <confirmPassword>
+    aliases: [changepassword, cp, cpass]
+    description: Change password of Authes
+  recoverypassword:
+    usage: /recoverypassword <recoveryCode> <newPassword> <renewPassword>
+    aliases: [recoverypassword, rp, rpass]
+    description: Recovery password of Authes
+  forgotpassword:
+    usage: /forgotpassword
+    aliases: [forgotpassword, fp, fpass]
+    description: Forgot password of Authes

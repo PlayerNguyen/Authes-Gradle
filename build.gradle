@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id "com.github.johnrengelman.shadow" version "6.0.0"
+}
+
+group 'com.playernguyen.authes'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        url("https://oss.sonatype.org/content/repositories/releases/")
+
+    }
+    jcenter()
+}
+
+shadowJar {
+    baseName "Authes"
+    dependencies {
+        exclude("org.mindrot:jbcrypt")
+        exclude("org.apache.commons:commons-email")
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Class-Path': '/build/authes.jar'
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compileOnly files("lib/_server.jar")
+
+    // implementation group: 'org.simplejavamail', name: 'simple-java-mail', version: '6.4.3'
+    // https://mvnrepository.com/artifact/javax.mail/javax.mail-api
+    //implementation group: 'javax.mail', name: 'javax.mail-api', version: '1.6.2'
+    // https://mvnrepository.com/artifact/org.mindrot/jbcrypt
+    compile group: 'org.mindrot', name: 'jbcrypt', version: '0.4'
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-email
+    compile group: 'org.apache.commons', name: 'commons-email', version: '1.5'
+
+
+}
+
