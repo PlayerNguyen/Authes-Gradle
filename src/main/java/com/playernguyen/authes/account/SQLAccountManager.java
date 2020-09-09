@@ -81,7 +81,7 @@ public class SQLAccountManager extends AuthesInstance {
             String name = Bukkit.getOfflinePlayer(uuid).getName();
             String hash = BCrypt.hashpw(plaintext, BCrypt.gensalt(getConfiguration()
                     .getInt(ConfigurationFlag.OPTIONAL_BCRYPT_SALT)));
-            String address = Objects.requireNonNull(player.getAddress()).getAddress().toString();
+            String address = Objects.requireNonNull(player.getAddress()).getAddress().getHostAddress();
             String lastLogged = String.valueOf(System.currentTimeMillis());
             // Set parameters
             preparedStatement.setString(1, name);

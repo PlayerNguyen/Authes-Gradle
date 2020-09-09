@@ -28,6 +28,10 @@ public enum LanguageFlag {
     CHANGE_PASSWORD_SUCCESS("change-password-success", "&aSucceeded to change password"),
     RECOVERY_PASSWORD_SENT("recovery-password-sent", "&6&bRecovery password has sent to your mail!"),
     RECOVERY_CODE_INVALID("recovery-code-invalid", "&cRecovery code's invalid!"),
+    COMPONENT_REGISTER_TEXT("components-register-text", "your password"),
+    COMPONENT_LOGIN_TEXT("components-login-text", "your password"),
+    COMPONENT_RECONFIRM_REGISTER_TEXT("components-reconfirm-register-text", "confirm password"),
+    COMPONENT_WRONG_PASSWORD("components-wrong-password", "wrong password"),
     ;
 
     private final String path;

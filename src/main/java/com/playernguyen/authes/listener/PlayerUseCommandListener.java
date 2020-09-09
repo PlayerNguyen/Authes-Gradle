@@ -7,8 +7,11 @@ public class PlayerUseCommandListener extends AuthesListener {
 
     @EventHandler
     public void onCommandUse(PlayerCommandPreprocessEvent e) {
-        //System.out.println(e.getMessage());
-        // e.setCancelled(true);
+//        Player player = e.getPlayer();
+//
+//        if (!getSessionManager().hasSession(player.getUniqueId())) {
+//            e.setCancelled(true);
+//        }
     }
 
 }

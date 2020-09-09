@@ -27,7 +27,11 @@ public enum ConfigurationFlag {
     EMAIL_SEND_FROM_EMAIL("settings.email.send-from", "example@email.com"),
     EMAIL_SEND_FROM_NAME("settings.email.send-from", "Name to send"),
     EMAIL_SEND_SUBJECT("settings.email.subject", "Recovery Code"),
-    EMAIL_SEND_TEXT_NON_HTML("settings.email.non-html", "Your email client doesn't support HTML!")
+    EMAIL_SEND_TEXT_NON_HTML("settings.email.non-html", "Your email client doesn't support HTML!"),
+
+    USING_ANVIL_DIALOG("settings.using-anvil-dialog", true),
+
+    TICK_POPUP_SHOW("tick.popup-showing", 5),
 
     ;
 
