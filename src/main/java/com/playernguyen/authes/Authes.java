@@ -14,6 +14,7 @@ import com.playernguyen.authes.mail.MailSender;
 import com.playernguyen.authes.schedule.AuthesForceLogin;
 import com.playernguyen.authes.sql.MySQLEstablishment;
 import com.playernguyen.authes.sql.SQLEstablishment;
+import com.playernguyen.authes.util.AnvilDialogUtil;
 import com.playernguyen.authes.util.FileUtils;
 import com.playernguyen.authes.util.MySQLUtil;
 import org.bukkit.Bukkit;
@@ -76,8 +77,10 @@ public class Authes extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Session delete, for secure
-        getSessionManager().getContainer().clear();
+        if (getConfiguration().getBoolean(ConfigurationFlag.LOGIN_AFTER_RELOAD)) {
+            // Session delete, for secure
+            getSessionManager().getContainer().clear();
+        }
     }
 
     private void setupCommand() {
@@ -119,6 +122,11 @@ public class Authes extends JavaPlugin {
         Bukkit.getOnlinePlayers().forEach( player -> {
             Account account = getSQLAccountManager().getAccount(player.getUniqueId());
             getAccountManager().add(account);
+
+            // Anvil dialog
+            if (getConfiguration().getBoolean(ConfigurationFlag.USING_ANVIL_DIALOG)) {
+                AnvilDialogUtil.getCurrentInstance().showDialog(player);
+            }
 
             // Authes force login run
             AuthesForceLogin forceLogin = new AuthesForceLogin(player);

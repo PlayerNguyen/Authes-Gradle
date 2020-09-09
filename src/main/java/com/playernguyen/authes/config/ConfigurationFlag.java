@@ -33,6 +33,8 @@ public enum ConfigurationFlag {
     USING_ANVIL_DIALOG("settings.using-anvil-dialog", true),
 
     TICK_POPUP_SHOW("tick.popup-showing", 5),
+    
+    LOGIN_AFTER_RELOAD("login_after_reload", false)
 
     ;
 
