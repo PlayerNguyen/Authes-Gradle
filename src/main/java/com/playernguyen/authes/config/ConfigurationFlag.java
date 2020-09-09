@@ -11,6 +11,7 @@ public enum ConfigurationFlag {
     MYSQL_PORT("mysql.port", "3306"),
     MYSQL_TABLE_ACCOUNT("mysql.table.account", "account"),
     MYSQL_PREFIX("mysql.prefix", "authes_"),
+    MYSQL_PARAMETER("mysql.parameter", "useSSL=false&"),
 
     OPTIONAL_BCRYPT_SALT ("settings.bcrypt.salt-round", 7),
     PASSWORD_MIN_SIZE("settings.password-min-size", 6),

@@ -144,7 +144,8 @@ public class Authes extends JavaPlugin {
                     getConfiguration().getString(ConfigurationFlag.MYSQL_USERNAME),
                     getConfiguration().getString(ConfigurationFlag.MYSQL_PASSWORD),
                     getConfiguration().getString(ConfigurationFlag.MYSQL_DATABASE),
-                    getConfiguration().getString(ConfigurationFlag.MYSQL_PORT)
+                    getConfiguration().getString(ConfigurationFlag.MYSQL_PORT),
+                    getConfiguration().getString(ConfigurationFlag.MYSQL_PARAMETER)
             );
         } catch (ClassNotFoundException e) {
             this.getLogger().severe("Not found driver class of MySQL...");
