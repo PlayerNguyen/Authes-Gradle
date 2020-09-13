@@ -5,7 +5,7 @@ author: Player_Nguyen
 commands:
   register:
     usage: /register <password> <confirmPassword>
-    aliases: [register, reg, rg]
+    aliases: [register, reg]
     description: Register command of Authes
   login:
     usage: /login <password>
